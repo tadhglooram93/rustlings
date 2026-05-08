@@ -1,24 +1,22 @@
 fn animal_habitat(animal: &str) -> &str {
-    // TODO: Fix the compiler error in the statement below.
-    let identifier = if animal == "crab" {
-        1
+    // Use an Option<i32> to hold the identifier, since it can be absent.
+    let identifier: Option<i32> = if animal == "crab" {
+        Some(1)
     } else if animal == "gopher" {
-        2.0
+        Some(2)
     } else if animal == "snake" {
-        3
+        Some(3)
     } else {
-        "Unknown"
+        None
     };
 
-    // Don't change the expression below!
-    if identifier == 1 {
-        "Beach"
-    } else if identifier == 2 {
-        "Burrow"
-    } else if identifier == 3 {
-        "Desert"
-    } else {
-        "Unknown"
+    // Match on the optional identifier to determine habitat.
+    match identifier {
+        Some(1) => "Beach",
+        Some(2) => "Burrow",
+        Some(3) => "Desert",
+        None => "Unknown",
+        _ => "Unknown",
     }
 }
 
