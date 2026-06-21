@@ -2,12 +2,14 @@ trait AppendBar {
     fn append_bar(self) -> Self;
 }
 
-// TODO: Implement the trait `AppendBar` for a vector of strings.
-// `append_bar` should push the string "Bar" into the vector.
-
-fn main() {
-    // You can optionally experiment here.
+impl AppendBar for Vec<String> {
+    fn append_bar(mut self) -> Self {
+        self.push(String::from("Bar"));
+        self
+    }
 }
+
+// You can optionally experiment here.
 
 #[cfg(test)]
 mod tests {
@@ -19,4 +21,8 @@ mod tests {
         assert_eq!(foo.pop().unwrap(), "Bar");
         assert_eq!(foo.pop().unwrap(), "Foo");
     }
+}
+
+fn main() {
+    // optional main content
 }
