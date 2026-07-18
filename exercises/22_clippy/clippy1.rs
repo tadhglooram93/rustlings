@@ -5,8 +5,8 @@
 // warnings. Check Clippy's suggestions from the output to solve the exercise.
 
 fn main() {
-    // TODO: Fix the Clippy lint in this line.
-    let pi = 3.14;
+    // Fixed: use the constant `std::f32::consts::PI` instead of a literal.
+    let pi = std::f32::consts::PI;
     let radius: f32 = 5.0;
 
     let area = pi * radius.powi(2);
